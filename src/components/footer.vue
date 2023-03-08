@@ -4,3 +4,14 @@
     </footer>
 </template>
   
+
+<style scoped>
+footer {
+    align-self: end;
+    background: #d7d7d7;
+    color: #666;
+    padding: 10px;
+    text-align: center;
+}
+
+</style>

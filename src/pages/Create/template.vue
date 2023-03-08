@@ -1,6 +1,6 @@
 <template>
   <div id="cre">
-    <p>创建页面</p>
+    创建页面
   </div>
 </template>
 

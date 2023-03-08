@@ -26,36 +26,33 @@ export default {
 }
 </script>
 
-<style>
-/* * {
-  margin: 0px;
-} */
-
-/* // @import "./assets/common.less"; */
-
-html,
-body,
-#app {
-  height: 100%;
-}
+<style scoped lang="less">
+@import "./assets/common.less";
 
 #app {
   display: grid;
-  grid: auto 1fr auto / 15% auto 15%;
+  grid-template-columns: 12% auto 12%;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas: "header header header"
+    ". main ."
+    "footer footer footer";
+
 }
 
 #header {
-  grid-area: 1/2/2/3;
+  grid-area: header;
+  padding-left: 12%;
+  padding-right: 12%;
 
 }
 
 #main {
-  grid-area: 2/2/3/3;
+  grid-area: main;
   border: 1px solid red;
 }
 
 #footer {
-  grid-area: 3/2/4/3;
+  grid-area: footer;
   padding-left: 12%;
   padding-right: 12%;
 }
