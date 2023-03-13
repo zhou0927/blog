@@ -26,8 +26,7 @@ export default {
 }
 </script>
 
-<style scoped lang="less">
-@import "./assets/common.less";
+<style lang="less">
 
 #app {
   display: grid;
@@ -48,7 +47,6 @@ export default {
 
 #main {
   grid-area: main;
-  border: 1px solid red;
 }
 
 #footer {
