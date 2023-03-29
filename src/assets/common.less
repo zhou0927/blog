@@ -1,3 +1,5 @@
+@import "./base.less";
+
 * {
     margin: 0px;
     padding: 0px;
@@ -18,11 +20,19 @@ body,
 
 .el-button {
     font-size: 13px;
-    color: #006600;
-    height: 28px;
+    color: @themeColor;
     line-height: 28px;
     padding: 0 8px;
     border-radius: 4px;
     font-weight: normal;
-    border: none;
+    border: 1px solid @themeLighterColor;
+
+    a {
+        text-decoration: none;
+    }
+}
+
+.el-button:hover {
+    color: #fff;
+    background-color: @themeLighterColor;
 }
