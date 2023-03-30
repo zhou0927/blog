@@ -9,9 +9,13 @@ import My from '@/pages/My/template.vue'
 import User from '@/pages/User/template.vue'
 import Register from '@/pages/Register/template.vue'
 
+import store from '../store'
+window.store = store
+
+
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   routes: [
     {
       path: '/',
@@ -22,8 +26,13 @@ export default new Router({
       component: Login
     },
     {
+      path: '/register',
+      component: Register
+    },
+    {
       path: '/create',
-      component: Create
+      component: Create,
+      meta: { requiresAuth: true }
     },
     {
       path: '/detail/:blogId',
@@ -31,19 +40,35 @@ export default new Router({
     },
     {
       path: '/edit/:editId',
-      component: Edit
+      component: Edit,
+      meta: { requiresAuth: true }
     },
     {
       path: '/my',
-      component: My
+      component: My,
+      meta: { requiresAuth: true }
     },
     {
       path: '/user/:userId',
       component: User
     },
-    {
-      path: '/register',
-      component: Register
-    }
+
   ]
 })
+
+router.beforeEach((to, from, next) => {
+  if (to.matched.some(record => record.meta.requiresAuth)) {
+    if (!store.getters.islogin) {
+      next({
+        path: '/login',
+        query: { redirect: to.fullPath }
+      })
+    } else {
+      next()
+    }
+  } else {
+    next()
+  }
+})
+
+export default router
