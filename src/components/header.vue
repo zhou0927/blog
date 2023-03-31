@@ -9,8 +9,8 @@
       </div>
     </template>
     <template v-if="isLogin">
-      <h1>let's share</h1>
-      <i class="edit el-icon-plus"></i>
+      <h1><router-link to="/">let's share</router-link></h1>
+      <router-link to="/create"><i class="edit el-icon-plus"></i></router-link>
       <div class="user">
         <el-avatar class="avatar" :src="user.avatar" :alt="user.username" :title="user.username"></el-avatar>
         <ul>
@@ -105,7 +105,6 @@ header.login {
 
     a {
       color: #FFF;
-
     }
   }
 
@@ -135,11 +134,12 @@ header.login {
       padding: 0;
       background-color: #fff;
 
+
       a {
         text-decoration: none;
         color: #333;
         font-size: 12px;
-        display: block;
+        display: inline-block;
         padding: 5px 10px;
 
         &:hover {
