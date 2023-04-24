@@ -1,11 +1,11 @@
 <template>
   <div id="detail">
     <section class="user-info">
-      <el-avatar src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png" class="avatar"></el-avatar>
-      <h3>前端异步大揭秘</h3>
-      <p><router-link to="/user">周怡</router-link> 发布于3天前</p>
-
+      <el-avatar :src="user.avatar" :alt="user.username" :title="user.username" class="avatar"></el-avatar>
+      <h3>{{ title }}</h3>
+      <p><router-link :to="`/user/${user.id}`">{{ user.username }}</router-link> 发布于{{ friendlyDate(createdAt) }}</p>
     </section>
+    <section class="article" v-html="markdown"></section>
   </div>
 </template>
 

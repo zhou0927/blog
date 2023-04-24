@@ -7,8 +7,10 @@ import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import './assets/common.less'
 import store from './store';
+import util from './helpers/util';
 
 Vue.use(ElementUI)
+Vue.use(util)
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
