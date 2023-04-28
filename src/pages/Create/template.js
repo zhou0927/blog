@@ -13,7 +13,7 @@ export default {
     onCreate() {
       blog.createBlog({ title: this.title, content: this.content, description: this.description, atIndex: this.atIndex })
         .then(res => {
-          this.$message.success(res.mag)
+          this.$message.success("创建成功")
           this.$router.push({ path: `/detail/${res.data.id}` })
         })
     }
