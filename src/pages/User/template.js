@@ -10,7 +10,7 @@ export default {
       }
     },
 
-    create(){
+    created(){
       this.userId = this.$route.params.userId
       blog.getBlogsByUserId(this.userId,{page:this.page})
         .then(res=>{
@@ -22,5 +22,25 @@ export default {
             this.user = res.data[0].user
           }
        })
+    },
+    methods:{
+      onPageChange(newPage){
+        blog.getBlogsByUserId(this.userId, { page: newPage }).then(res => {
+          console.log(res)
+          this.blogs = res.data
+          this.total = res.total
+          this.page = res.page
+          this.$router.push({ path: `/user/${this.userId}`,query:{page:newPage} })
+        })
+      },
+
+      splitDate(dataStr) {
+        let dateObj = typeof dataStr === 'object' ? dataStr : new Date(dataStr)
+        return {
+          date:dateObj.getDate(),
+          month: dateObj.getMonth()+1,
+          year: dateObj.getFullYear()
+        }
+      }
     }
   }
