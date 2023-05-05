@@ -42,7 +42,7 @@ const router = new Router({
       component: Detail
     },
     {
-      path: '/edit/:editId',
+      path: '/edit/:blogId',
       component: Edit,
       meta: { requiresAuth: true }
     },
@@ -83,7 +83,7 @@ const router = new Router({
       component: () => import('@/pages/detail/template.vue')
     },
     {
-      path: '/edit/:editId',
+      path: '/edit/:blogId',
       component: () => import('@/pages/Edit/template.vue'),
       meta: { requiresAuth: true }
     },
